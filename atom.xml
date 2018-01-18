@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>吴彦祖小江&#39; Blog</title>
+  
+  <subtitle>佛祖保佑，永无bug!</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://xiangjiangcheng.cn/"/>
+  <updated>2018-01-18T18:30:17.217Z</updated>
+  <id>http://xiangjiangcheng.cn/</id>
+  
+  <author>
+    <name>向江城</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初识Hexo+Next</title>
+    <link href="http://xiangjiangcheng.cn/2018/01/17/%E5%88%9D%E8%AF%86Hexo-Next/"/>
+    <id>http://xiangjiangcheng.cn/2018/01/17/初识Hexo-Next/</id>
+    <published>2018-01-16T16:09:45.000Z</published>
+    <updated>2018-01-18T18:30:17.217Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div class="note success"><p>本篇博客主要用来记录我个人在搭建该博客时，查询资料过程中得到的一些总结，以及阅读过的一些有价值的文章！让一些从未搭建过博客的同学，可以花费更少的时间去搭建属于你的博客。</p></div><h2 id="Hexo是什么？"><a href="#Hexo是什么？" class="headerlink" title="Hexo是什么？"></a>Hexo是什么？</h2><p> Hexo 是一个快速、简洁且高效的博客框架。我个人理解，可以把他当作一个已经完成的项目来看待，而我们用Hexo搭建属于我们的博客，仅仅需要先把这个项目拉到我们本地电脑，根据官方文档进行一番配置（这里配置的前提是博客主题已经选好的情况下），然后部署到github上面，配上域名，则可以通过域名去访问。</p><p>详见Hexo官方文档：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></p><h2 id="Next是什么？"><a href="#Next是什么？" class="headerlink" title="Next是什么？"></a>Next是什么？</h2><p>一种很简洁，目前很流行，使用文档非常详细的博客主题。</p><p>详见知乎解答：<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="noopener">https://www.zhihu.com/question/24422335</a></p><h2 id="快速搭建属于你的博客"><a href="#快速搭建属于你的博客" class="headerlink" title="快速搭建属于你的博客"></a>快速搭建属于你的博客</h2><p>网上使用Hexo + Next搭建博客的教程很多；就不从头重新写了。</p><p>贴上一篇我搭建博客参考的文章，这篇文章的作者已经写的很详细了；新手可以参考：<a href="https://www.jianshu.com/p/f66103553c45" target="_blank" rel="noopener">https://www.jianshu.com/p/f66103553c45</a> </p><p>注意:<br>安装Nodejs后，记得使用淘宝镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 查看是否npm安装成功</span><br><span class="line">$ npm -v</span><br><span class="line"># 使用淘宝镜像</span><br><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"># 查看cnpm是否安装成功</span><br><span class="line">$ cnpm -v</span><br></pre></td></tr></table></figure><p>以上命令正常执行,就可以优雅的使用cnpm代替npm安装主题了（速度会快很多）。</p><h2 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 清除缓存文件 (db.json) 和已生成的静态文件 (public)</span><br><span class="line">$ hexo clean</span><br><span class="line"># 生成静态文件 (部署)</span><br><span class="line">$ hexo generate  -&gt; $ hexo g (命令简写形式)</span><br><span class="line"># 启动服务器</span><br><span class="line">$ hexo serve</span><br><span class="line"># 发布到git上</span><br><span class="line">$ hexo deploy  -&gt; $ hexo d (命令简写形式)</span><br></pre></td></tr></table></figure><p>注意：以上命令都是在站点根目录下面运行！</p><p>其他详细命令见官方文档：<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/commands.html</a></p><h2 id="优秀博客："><a href="#优秀博客：" class="headerlink" title="优秀博客："></a>优秀博客：</h2><ul><li><a href="http://www.cduyzh.com/" target="_blank" rel="noopener">http://www.cduyzh.com/</a></li><li><a href="http://shenzekun.cn/" target="_blank" rel="noopener">http://shenzekun.cn/</a></li><li><a href="https://appkfz.com/" target="_blank" rel="noopener">https://appkfz.com/</a></li><li><a href="http://visugar.com/" target="_blank" rel="noopener">http://visugar.com/</a></li></ul><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul><li><a href="https://segmentfault.com/a/1190000009544924" target="_blank" rel="noopener">https://segmentfault.com/a/1190000009544924</a></li><li><a href="https://jiaqiangbandongg.github.io/2017/07/29/Hexo-NexT-%E6%B7%BB%E5%8A%A0%E5%B0%8F%E5%8A%9F%E8%83%BD/" target="_blank" rel="noopener">https://jiaqiangbandongg.github.io/2017/07/29/Hexo-NexT-%E6%B7%BB%E5%8A%A0%E5%B0%8F%E5%8A%9F%E8%83%BD/</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;div class=&quot;note success&quot;&gt;&lt;p&gt;本篇博客主要用来记录我个人在搭建该博客时，查询资料过程中得到的一些总结，以及阅读过的一些
+      
+    
+    </summary>
+    
+      <category term="兴趣爱好" scheme="http://xiangjiangcheng.cn/categories/%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD/"/>
+    
+    
+      <category term="Hexo" scheme="http://xiangjiangcheng.cn/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的博客</title>
+    <link href="http://xiangjiangcheng.cn/2017/12/30/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://xiangjiangcheng.cn/2017/12/30/我的博客/</id>
+    <published>2017-12-30T07:41:50.428Z</published>
+    <updated>2017-12-30T07:43:35.974Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://xiangjiangcheng.cn/2017/12/30/hello-world/"/>
+    <id>http://xiangjiangcheng.cn/2017/12/30/hello-world/</id>
+    <published>2017-12-30T06:43:35.538Z</published>
+    <updated>2017-12-30T06:43:35.538Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
