@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[小白之快速搭建svn教程]]></title>
+    <url>%2F2018%2F02%2F16%2F%E5%B0%8F%E7%99%BD%E4%B9%8B%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BAsvn%E6%95%99%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[前言 作为一名技术男，总是去网上买vpn账号来翻墙，还是会有些脸红。我也是小白一枚，刚开始也是使用一些网站提供的免费vpn账号来翻墙（网上账号太贵）。后面在了解了翻墙的原理之后，打算自己搭建vpn 准备 自行了解vps的概念以及作用; 购买一个国外vps 开始步骤1. 购买一个国外vps！要求预装linux系统，同时拿到服务器的主机，用户名，密码。例如：123主机：155.94.235.113用户名：root密码：xddf12343 &gt; 下面列出几个博主目前用过性价比较高（其实就是便宜）的国外的vps，下行速度有点慢（毕竟便宜）： 1.https://virmach.com/ 2.http://www.vpsdx.com/3964.html 注意：国外vpn最好选择洛杉矶的，速度应该是最快的。 步骤2. 连接服务器 这里博主使用的是Xbrowser 5工具，安装及使用方法自行百度 使用界面截图： 步骤3. 安装shadowsocks，配置账号 A.具体安装方法请参考：https://github.com/shadowsocks/shadowsocks-libev B.配置：参考https://github.com/shadowsocks/shadowsocks/wiki/Configuration-via-Config-File C.启动，参考：https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E 步骤4. 使用ss或ssr客户端翻墙 先下载客户端：https://github.com/shadowsocks/shadowsocks-windows/releases 配置账号 运行客户端，访问google 总结附上免费的vpn翻墙网站 1.免费ss账号 - ishadow 2.吾爱ss 注意：上面两个网站，第一个有很详细的教程，如何使用这里就不提了！第二个网站需要先注册一个账号，然后每天可领取流量，使用网站提供的免费节点。 End]]></content>
+      <categories>
+        <category>兴趣爱好</category>
+      </categories>
+      <tags>
+        <tag>svn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[初识Hexo+Next]]></title>
     <url>%2F2018%2F01%2F17%2F%E5%88%9D%E8%AF%86Hexo-Next%2F</url>
     <content type="text"><![CDATA[前言本篇博客主要用来记录我个人在搭建该博客时，查询资料过程中得到的一些总结，以及阅读过的一些有价值的文章！让一些从未搭建过博客的同学，可以花费更少的时间去搭建属于你的博客。 Hexo是什么？ Hexo 是一个快速、简洁且高效的博客框架。我个人理解，可以把他当作一个已经完成的项目来看待，而我们用Hexo搭建属于我们的博客，仅仅需要先把这个项目拉到我们本地电脑，根据官方文档进行一番配置（这里配置的前提是博客主题已经选好的情况下），然后部署到github上面，配上域名，则可以通过域名去访问。 详见Hexo官方文档：https://hexo.io/zh-cn/docs/ Next是什么？一种很简洁，目前很流行，使用文档非常详细的博客主题。 详见知乎解答：https://www.zhihu.com/question/24422335 快速搭建属于你的博客网上使用Hexo + Next搭建博客的教程很多；就不从头重新写了。 贴上一篇我搭建博客参考的文章，这篇文章的作者已经写的很详细了；新手可以参考：https://www.jianshu.com/p/f66103553c45 注意:安装Nodejs后，记得使用淘宝镜像 123456# 查看是否npm安装成功$ npm -v# 使用淘宝镜像$ npm install -g cnpm --registry=https://registry.npm.taobao.org# 查看cnpm是否安装成功$ cnpm -v 以上命令正常执行,就可以优雅的使用cnpm代替npm安装主题了（速度会快很多）。 Hexo常用命令12345678# 清除缓存文件 (db.json) 和已生成的静态文件 (public)$ hexo clean# 生成静态文件 (部署)$ hexo generate -&gt; $ hexo g (命令简写形式)# 启动服务器$ hexo serve# 发布到git上$ hexo deploy -&gt; $ hexo d (命令简写形式) 注意：以上命令都是在站点根目录下面运行！ 其他详细命令见官方文档：https://hexo.io/zh-cn/docs/commands.html 优秀博客： http://www.cduyzh.com/ http://shenzekun.cn/ https://appkfz.com/ http://visugar.com/ 参考文章 https://segmentfault.com/a/1190000009544924 https://jiaqiangbandongg.github.io/2017/07/29/Hexo-NexT-%E6%B7%BB%E5%8A%A0%E5%B0%8F%E5%8A%9F%E8%83%BD/]]></content>
