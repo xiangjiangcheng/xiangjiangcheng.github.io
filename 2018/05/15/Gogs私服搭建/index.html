@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="gogs,docker,git," />
 
 
 
@@ -81,16 +81,24 @@
 
 
 
-<meta name="description" content="一个心系人民群众的程序员">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴彦祖小江&#39; Blog">
-<meta property="og:url" content="http://xiangjiangcheng.cn/tags/svn/index.html">
+<meta name="description" content="前言空闲时间，使用docker方式，搭建gogs，用来进行项目版本控制。阅读这篇博客时，我假定你之前有过基本的docker使用经验或者至少对docker有着一定的了解。否则，建议你使用这种方式去搭建，传送门：庆爷搭建gogs的心酸历程 What is Gogs?一款极易搭建的自助Git服务，用来进行代码版本控制。 优点：Gogs, 用 docker 跑很方便，外观也漂亮，轻巧简洁，运行快速，几百">
+<meta name="keywords" content="gogs,docker,git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gogs私服搭建">
+<meta property="og:url" content="http://xiangjiangcheng.cn/2018/05/15/Gogs私服搭建/index.html">
 <meta property="og:site_name" content="吴彦祖小江&#39; Blog">
-<meta property="og:description" content="一个心系人民群众的程序员">
+<meta property="og:description" content="前言空闲时间，使用docker方式，搭建gogs，用来进行项目版本控制。阅读这篇博客时，我假定你之前有过基本的docker使用经验或者至少对docker有着一定的了解。否则，建议你使用这种方式去搭建，传送门：庆爷搭建gogs的心酸历程 What is Gogs?一款极易搭建的自助Git服务，用来进行代码版本控制。 优点：Gogs, 用 docker 跑很方便，外观也漂亮，轻巧简洁，运行快速，几百">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://xiangjiangcheng.cn/2018/05/15/Gogs私服搭建/1949753-3150458000611564.png">
+<meta property="og:image" content="http://xiangjiangcheng.cn/2018/05/15/Gogs私服搭建/1949753-a0193800e94c6aa2.png">
+<meta property="og:image" content="http://xiangjiangcheng.cn/2018/05/15/Gogs私服搭建/TIM图片20180515131440.png">
+<meta property="og:image" content="http://xiangjiangcheng.cn/2018/05/15/Gogs私服搭建/gogs效果图.png">
+<meta property="og:image" content="http://xiangjiangcheng.cn/2018/05/15/Gogs私服搭建/aliyun-放开端口.png">
+<meta property="og:updated_time" content="2018-05-15T12:38:41.962Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吴彦祖小江&#39; Blog">
-<meta name="twitter:description" content="一个心系人民群众的程序员">
+<meta name="twitter:title" content="Gogs私服搭建">
+<meta name="twitter:description" content="前言空闲时间，使用docker方式，搭建gogs，用来进行项目版本控制。阅读这篇博客时，我假定你之前有过基本的docker使用经验或者至少对docker有着一定的了解。否则，建议你使用这种方式去搭建，传送门：庆爷搭建gogs的心酸历程 What is Gogs?一款极易搭建的自助Git服务，用来进行代码版本控制。 优点：Gogs, 用 docker 跑很方便，外观也漂亮，轻巧简洁，运行快速，几百">
+<meta name="twitter:image" content="http://xiangjiangcheng.cn/2018/05/15/Gogs私服搭建/1949753-3150458000611564.png">
 
 
 
@@ -120,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://xiangjiangcheng.cn/tags/svn/"/>
+  <link rel="canonical" href="http://xiangjiangcheng.cn/2018/05/15/Gogs私服搭建/"/>
 
 
 
 
 
-  <title>标签: svn | 吴彦祖小江' Blog</title>
+  <title>Gogs私服搭建 | 吴彦祖小江' Blog</title>
   
 
 
@@ -145,7 +153,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 		<a href="https://github.com/xiangjiangcheng"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
 	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -293,54 +301,283 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>svn<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiangjiangcheng.cn/2018/05/15/Gogs私服搭建/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="向江城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴彦祖小江' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/16/小白之快速搭建svn教程/" itemprop="url">
-              
-                <span itemprop="name">小白之快速搭建svn教程</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Gogs私服搭建</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-16T09:27:38+08:00"
-              content="2018-02-16" >
-          02-16
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T19:55:39+08:00">
+                2018-05-15
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常杂记/" itemprop="url" rel="index">
+                    <span itemprop="name">日常杂记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/05/15/Gogs私服搭建/" class="leancloud_visitors" data-flag-title="Gogs私服搭建">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,677
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a><font color="0099ff" size="3">前言</font></h3><p>空闲时间，使用docker方式，搭建gogs，用来进行项目版本控制。阅读这篇博客时，我假定你之前有过基本的docker使用经验或者至少对docker有着一定的了解。否则，建议你使用这种方式去搭建，传送门：<a href="http://huangqing.top/2018/05/09/Gogs%E6%90%AD%E5%BB%BA%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" target="_blank" rel="noopener">庆爷搭建gogs的心酸历程</a></p>
+<h3 id="What-is-Gogs"><a href="#What-is-Gogs" class="headerlink" title="What is Gogs?"></a><font color="0099ff" size="3">What is Gogs?</font></h3><p>一款极易搭建的自助<code>Git</code>服务，用来进行代码版本控制。</p>
+<p>优点：Gogs, 用 docker 跑很方便，外观也漂亮，轻巧简洁，运行快速，几百人使用完全可以满足。</p>
+<p>比较：关于私有化git服务，目前了解的有 <code>gitlab</code>，<code>gitblit</code>，<code>gittea</code> 和 <code>Gogs</code>。上家公司用的gitlba，现在公司用的gitblit。<br>gitlab:Gitlab 功能很全，但你需要一个配置足够好的机器来跑，毕竟集成了太多的东西，比较耗内存，慢。自己手动搭建会比较复杂，推荐使用官方的docker image，搭建起来会容易一点。</p>
+<p>ps:具体选择要看应用场景，以及服务器的配置等……</p>
+<h3 id="安装gogs"><a href="#安装gogs" class="headerlink" title="安装gogs"></a><font color="0099ff" size="3">安装gogs</font></h3><p>您可以通过以下 5 种方式来安装 Gogs：</p>
+<p>二进制安装<br>源码安装<br>包管理安装<br>采用 Docker 部署<br>通过 Vagrant 安装<br>我是用的第4种 “采用 Docker 部署”,其他安装方式请点<a href="https://github.com/gogits/gogs/blob/master/README_ZH.md" target="_blank" rel="noopener">这里</a><br>1、安装docker。<br>2、安装mysql。<br>3、拉取gogs镜像。<br>4、启动gogs容器<br>5、然后在浏览器中访问<a href="http://服务器IP:3000/，就可以打开web安装界面，进行相应的配置，然后，你就可以玩了。" target="_blank" rel="noopener">http://服务器IP:3000/，就可以打开web安装界面，进行相应的配置，然后，你就可以玩了。</a></p>
+<h3 id="Docker方式安装gogs"><a href="#Docker方式安装gogs" class="headerlink" title="Docker方式安装gogs"></a><font color="0099ff" size="3">Docker方式安装gogs</font></h3><h4 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h4><p>阿里云服务器 Ubuntu 16.04.3 LTS </p>
+<h4 id="安装Gogs所需环境"><a href="#安装Gogs所需环境" class="headerlink" title="安装Gogs所需环境"></a>安装Gogs所需环境</h4><p>1.安装nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure></p>
+<p>2.安装git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure></p>
+<p>3.安装MySQL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure></p>
+<p>安装mysql会弹出一个框，提示输入数据库密码，这里我输入的123456；输入两次，然后ok，继续安装。</p>
+<p>ps:以上3步，你可能会遇到安装失败的情况，可以试试再执行上面的命令前先执行下面一条命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+<p>4.创建gogs数据库<br>// 安装好了mysql,可以使用Navicat或者其他数据库管理工具连接上数据库，创建一个数据库，数据库名：gogs<br>// 当然也可以直接在服务器上面sql新建，看个人喜爱<br>// 下面是新建数据库的sql命令<br>// 登录数据库<br>mysql -u root -p<br>// 输入数据库密码：123456 进入到mysql命令行界面,执行下面条命令<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SET GLOBAL storage_engine = <span class="string">'InnoDB'</span>;</span><br><span class="line">CREATE DATABASE gogs CHARACTER SET utf8 COLLATE utf8_bin;</span><br><span class="line">GRANT ALL PRIVILEGES ON gogs.* TO ‘root’@‘localhost’ IDENTIFIED BY <span class="string">'123456'</span>;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line">QUIT；</span><br><span class="line"></span><br><span class="line"><span class="comment">// # 123456是你设置的mysql数据库密码</span></span><br></pre></td></tr></table></figure></p>
+<p>5.安装docker<br>简单方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker</span><br></pre></td></tr></table></figure></p>
+<p>ps:详见:<a href="https://www.linuxidc.com/Linux/2016-12/138489.htm" target="_blank" rel="noopener">Ubuntu 16.04安装Docker</a>，用centos或者其他系统的请自行百度，确保docker成功安装，再进行下面的步骤。</p>
+<h4 id="安装Gogs，配置"><a href="#安装Gogs，配置" class="headerlink" title="安装Gogs，配置"></a>安装Gogs，配置</h4><p>6.拉取gogs镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker images  # 查看本地拉取了的镜像</span><br><span class="line">docker pull mysql  # 拉取mysql镜像</span><br><span class="line">docker pull gogs/gogs  # 拉取gogs镜像</span><br><span class="line">docker images  # 查看本地拉取了的镜像，看是否拉取了gogs、</span><br></pre></td></tr></table></figure></p>
+<p>7.启动gogs镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name=mygogs -p 10022:22 -p 10080:3000 -v /var/gogs:/data gogs/gogs  # 启动gogs容器,使用镜像gogs/gogs以后台模式启动一个容器,将容器的3000端口映射到主机的10080端口,主机的目录/var/gogs映射到容器的/data。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 下面几个命令用来查看容器进程，可以忽略</span><br><span class="line">docker ps -a # 查看容器进程, 加上参数-a,表示查看所有进程，包括已经退出的</span><br><span class="line">docker stop a01d66f87d71 # 停止id为a01d66f87d71的容器</span><br><span class="line">docker rm a01d66f87d71 # 移除id为a01d66f87d71的容器</span><br></pre></td></tr></table></figure></p>
+<p>8.首次配置<br>启动完成后，在浏览器中访问：<a href="http://ip:10080" target="_blank" rel="noopener">http://ip:10080</a><br>ps:为什么访问10080，是因为gogs的默认端口是3000，docker启动gogs容器时，将容器的3000端口映射到主机的10080端口，所以访问服务器的10080端口，也就是访问容器的3000端口！</p>
+<p>第一次访问Gogs，浏览器进入安装页面，如图所示填写字段<br><img src="./1949753-3150458000611564.png" alt="GitHub Logo"><br><img src="./1949753-a0193800e94c6aa2.png" alt="GitHub Logo"><br><img src="./TIM图片20180515131440.png" alt="GitHub Logo"><br>然后就ok了，全部结束了，愉快的使用gogs吧。其中有些命令是我自己记下来熟悉的，可以忽略。<br>附上一张效果图：<br><img src="./gogs效果图.png" alt="GitHub Logo"></p>
+<h3 id="手动搭建方式安装gogs"><a href="#手动搭建方式安装gogs" class="headerlink" title="手动搭建方式安装gogs"></a><font color="0099ff" size="3">手动搭建方式安装gogs</font></h3><p>传送门：<a href="http://huangqing.top/2018/05/09/Gogs%E6%90%AD%E5%BB%BA%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" target="_blank" rel="noopener">庆爷搭建gogs的心酸历程</a></p>
+<h3 id="安装过程遇到的坑"><a href="#安装过程遇到的坑" class="headerlink" title="安装过程遇到的坑"></a><font color="0099ff" size="3">安装过程遇到的坑</font></h3><p>1.阿里云服务器做了端口限制，远程连接数据库或者访问gogs时，需要放开相应的端口，否则会出现连不上的情况；</p>
+<p>本教程中:<code>gogs -&gt; 10080,mysql -&gt; 3306</code>。所以阿里云安全组里面应该放开这两个端口。如下图：<br><img src="./aliyun-放开端口.png" alt="GitHub Logo"></p>
+<p>2.gogs第一个注册的用户即为管理员，我搭好后，忘了密码，然后想的是，直接注册一个新的账号，通过修改数据库的方式，将管理员账号的password替换为新注册的用户密码；多次实验，结果发现登录不了，原来gogs在进行用户注册时，不是直接将输入的密码拿来进行加密，应该是将输入的密码（a）+其他值，如用户名等(b) = 得到一个全新的字符串(c)，再将c进行的加密！还是自己太年轻！当然，如果你确实忘记了管理员密码，你可以操作数据库，删除user表中id=1的那条数据，将重新注册的那个账号的id设置为1，则这个账号即为管理员账号。</p>
+<p>3.还有一点，ubuntu 设置远程访问数据库，除了开放3306端口，给用户授权，还需要修改mysql配置文件。<br>找到mysql的这个配置文件：<code>/etc/mysql/mysql.conf.d/mysqld.cnf</code></p>
+<p>用管理员权限编辑这个文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br></pre></td></tr></table></figure></p>
+<p>往下面翻，<br>在<code>bind-address = 127.0.0.1</code>这一行前面添加<code>#</code>，将其注释掉。ok，原来mysql自己配置了本地的地址。<br>注释按esc，输入<code>:wq</code>保存，重启MySQL服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql restart</span><br></pre></td></tr></table></figure></p>
+<p>或者：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service mysql stop</span><br><span class="line">service mysql start</span><br></pre></td></tr></table></figure></p>
+<p>4.可能你会去修改gogs的配置文件<br>docker安装gogs完成后，Gogs配置文件位置（<code>/var/gogs/gogs/conf/app.ini</code>）</p>
+<h3 id="我的Gogs"><a href="#我的Gogs" class="headerlink" title="我的Gogs"></a><font color="0099ff" size="3">我的Gogs</font></h3><p>url:<a href="http://59.110.155.32:10080/" target="_blank" rel="noopener">http://59.110.155.32:10080/</a><br>测试用户：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户名：gg</span><br><span class="line">密码：123456</span><br></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><font color="0099ff" size="3">总结</font></h3><p>在这次搭建gogs的过程中，对docker又有了更加深入的了解，即便只有那么一点点。感谢那些技术大神！感谢世界和平！</p>
+<h3 id="查阅资料"><a href="#查阅资料" class="headerlink" title="查阅资料"></a><font color="0099ff" size="3">查阅资料</font></h3><p><a href="https://www.cnblogs.com/anliven/p/6799429.html" target="_blank" rel="noopener">Docker - 访问容器</a><br><a href="https://www.jianshu.com/p/64e9708c23e7" target="_blank" rel="noopener">Docker 方式安装Gogs</a></p>
 
       
     </div>
+    
+    
+    
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #f90a0a;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+    
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="向江城 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/gogs/" rel="tag"># gogs</a>
+          
+            <a href="/tags/docker/" rel="tag"># docker</a>
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/16/小白之快速搭建svn教程/" rel="next" title="小白之快速搭建svn教程">
+                <i class="fa fa-chevron-left"></i> 小白之快速搭建svn教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/15/xio习Redis/" rel="prev" title="xio习Redis">
+                xio习Redis <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -348,6 +585,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzMyNS85ODgx"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -368,8 +614,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -470,6 +725,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-Gogs"><span class="nav-number">2.</span> <span class="nav-text">What is Gogs?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装gogs"><span class="nav-number">3.</span> <span class="nav-text">安装gogs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker方式安装gogs"><span class="nav-number">4.</span> <span class="nav-text">Docker方式安装gogs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#系统环境"><span class="nav-number">4.1.</span> <span class="nav-text">系统环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Gogs所需环境"><span class="nav-number">4.2.</span> <span class="nav-text">安装Gogs所需环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Gogs，配置"><span class="nav-number">4.3.</span> <span class="nav-text">安装Gogs，配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动搭建方式安装gogs"><span class="nav-number">5.</span> <span class="nav-text">手动搭建方式安装gogs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装过程遇到的坑"><span class="nav-number">6.</span> <span class="nav-text">安装过程遇到的坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我的Gogs"><span class="nav-number">7.</span> <span class="nav-text">我的Gogs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查阅资料"><span class="nav-number">9.</span> <span class="nav-text">查阅资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -626,6 +897,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -654,6 +929,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

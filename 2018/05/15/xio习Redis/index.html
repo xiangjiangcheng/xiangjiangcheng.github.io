@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="redis," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="噗~ IT MANBlog记录生活，记录学习 Education成都信息工程大学软件工程学院2013级2班  JobJava开发工程师 Contact🐧：1150241658Mail：1150241658@qq.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://xiangjiangcheng.cn/about/index.html">
+<meta name="description" content="Redis入门到放弃（使用篇+代码实例） set（有序集合）认识：有序集合 命令：这里参数关键字都比较多，所以下面开始列举的命令， 关键字都使用 大写有序集合中,有key(键)、score（分数）、member（元素）三个参数！其中member为元素，score为member对应的分数。也就是说一个key里面有多个member，一个member又对应了一个score。后面我们根据分数的范围获取集">
+<meta name="keywords" content="redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xio习Redis">
+<meta property="og:url" content="http://xiangjiangcheng.cn/2018/05/15/xio习Redis/index.html">
 <meta property="og:site_name" content="吴彦祖小江&#39; Blog">
-<meta property="og:description" content="噗~ IT MANBlog记录生活，记录学习 Education成都信息工程大学软件工程学院2013级2班  JobJava开发工程师 Contact🐧：1150241658Mail：1150241658@qq.com">
+<meta property="og:description" content="Redis入门到放弃（使用篇+代码实例） set（有序集合）认识：有序集合 命令：这里参数关键字都比较多，所以下面开始列举的命令， 关键字都使用 大写有序集合中,有key(键)、score（分数）、member（元素）三个参数！其中member为元素，score为member对应的分数。也就是说一个key里面有多个member，一个member又对应了一个score。后面我们根据分数的范围获取集">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-18T18:01:56.217Z">
+<meta property="og:updated_time" content="2018-05-15T13:13:51.888Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="噗~ IT MANBlog记录生活，记录学习 Education成都信息工程大学软件工程学院2013级2班  JobJava开发工程师 Contact🐧：1150241658Mail：1150241658@qq.com">
+<meta name="twitter:title" content="xio习Redis">
+<meta name="twitter:description" content="Redis入门到放弃（使用篇+代码实例） set（有序集合）认识：有序集合 命令：这里参数关键字都比较多，所以下面开始列举的命令， 关键字都使用 大写有序集合中,有key(键)、score（分数）、member（元素）三个参数！其中member为元素，score为member对应的分数。也就是说一个key里面有多个member，一个member又对应了一个score。后面我们根据分数的范围获取集">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://xiangjiangcheng.cn/about/"/>
+  <link rel="canonical" href="http://xiangjiangcheng.cn/2018/05/15/xio习Redis/"/>
 
 
 
 
 
-  <title>关于我 | 吴彦祖小江' Blog</title>
+  <title>xio习Redis | 吴彦祖小江' Blog</title>
   
 
 
@@ -296,37 +297,287 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiangjiangcheng.cn/2018/05/15/xio习Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="向江城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴彦祖小江' Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于我</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h2 id="噗-IT-MAN"><a href="#噗-IT-MAN" class="headerlink" title="噗~ IT MAN"></a>噗~ IT MAN</h2><h2 id="Blog"><a href="#Blog" class="headerlink" title="Blog"></a>Blog</h2><p>记录生活，记录学习</p>
-<h2 id="Education"><a href="#Education" class="headerlink" title="Education"></a>Education</h2><p>成都信息工程大学<br>软件工程学院<br>2013级2班 </p>
-<h2 id="Job"><a href="#Job" class="headerlink" title="Job"></a>Job</h2><p>Java开发工程师</p>
-<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p>🐧：1150241658<br>Mail：1150241658@qq.com</p>
-
+          <h1 class="post-title" itemprop="name headline">xio习Redis</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T20:46:11+08:00">
+                2018-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常杂记/" itemprop="url" rel="index">
+                    <span itemprop="name">日常杂记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/05/15/xio习Redis/" class="leancloud_visitors" data-flag-title="xio习Redis">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,529
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <hr>
+<p>Redis入门到放弃（使用篇+代码实例）</p>
+<h3 id="set（有序集合）"><a href="#set（有序集合）" class="headerlink" title="set（有序集合）"></a>set（有序集合）</h3><h3 id="认识："><a href="#认识：" class="headerlink" title="认识："></a><font color="0099ff" size="3">认识：</font></h3><p>有序集合</p>
+<h3 id="命令："><a href="#命令：" class="headerlink" title="命令："></a><font color="0099ff" size="3">命令：</font></h3><p>这里参数关键字都比较多，所以下面开始列举的命令， <code>关键字</code>都使用 <code>大写</code><br>有序集合中,有key(键)、score（分数）、member（元素）三个参数！其中member为元素，score为member对应的分数。也就是说一个key里面有多个member，一个member又对应了一个score。后面我们根据分数的范围获取集合及其他操作（类似于筛选）。</p>
+<ol>
+<li>新增元素<br><strong> ZADD key score member [score member …] </strong><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; zadd scoreboard <span class="number">89</span> tom</span><br><span class="line">(integer) <span class="number">1</span>     <span class="comment">//添加一个</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; zadd scoreboard <span class="number">70</span> peter <span class="number">100</span> david</span><br><span class="line">(integer) <span class="number">2</span>     <span class="comment">//添加多个</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; zrange scoreboard <span class="number">0</span> <span class="number">-1</span> withscores     </span><br><span class="line"><span class="number">1</span>) <span class="string">"peter"</span>      <span class="comment">//带分数输出</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"70"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"tom"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"89"</span></span><br><span class="line"><span class="number">5</span>) <span class="string">"david"</span></span><br><span class="line"><span class="number">6</span>) <span class="string">"100"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2、获得元素的分数<br><strong>ZSCORE key member</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; zscore scoreboard peter</span><br><span class="line"><span class="string">"76"</span></span><br></pre></td></tr></table></figure></p>
+<p>3、获得排名在某个范围的元素列表<br><strong>ZRANGE key start stop [WITHSCORE]</strong></p>
+<p><strong> ZREVRANGE key start stop [WITHSCORE] </strong></p>
+<blockquote>
+<p>ZRANGE命令会按照元素分数的从小到大顺序返回索引从start到stop之间所有的元素（包含两端）。ZRANGE与LRANGE命令相似，索引从0开始，负数一样代表从后向前查找（-1是最后一个）。WITHSCORE代表是否加上分数。</p>
+</blockquote>
+<p>4、获得指定分数范围的元素<br><strong>ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]</strong></p>
+<blockquote>
+<p>这个命令参数很多，但是都很好理解。这个命令用来获取指定分数范围的元素，min是最小值，max是最大值，WITHSCORE还是和上面介绍的一样，LIMIT是为了指定偏移量及数量的，和sql的有点像。offset是偏移量，count是数量。同时这些min和max都是包含的，如果要想不包含，需要使用“(”符号。</p>
+</blockquote>
+<p>5、增加某个元素的分数<br><strong>ZINCRBY key incremnet member</strong></p>
+<p>6、获得集合中元素的数量<br><strong>ZCARD key</strong></p>
+<blockquote>
+<p>这个命令和SCARD类似，也就不多说了。</p>
+</blockquote>
+<p>7、获得指定分数范围的元素个数<br><strong>ZCOUNT key min max</strong></p>
+<blockquote>
+<p>这里就是获得min和max分数之间的元素数，当然这里也支持“(”符号。</p>
+</blockquote>
+<p>8、删除一个或多个元素<br><strong>ZREM key member [member …]</strong></p>
+<blockquote>
+<p>返回值是成功删除的元素的个数。</p>
+</blockquote>
+<p>9、按照排名范围删除元素<br><strong>ZREMRANGEBYRANK key start stop</strong></p>
+<blockquote>
+<p>这个命令按照元素分数从小到大顺序删除指定范围内所有的元素（其实就是先排序，然后按照排好的序列的索引删除），并返回删除的元素的数量。</p>
+</blockquote>
+<p>10、按照分数范围删除元素<br><strong>ZREMRANGEBYSCORE key min max</strong></p>
+<blockquote>
+<p>这里就是直接删除分数范围的元素了，这里分数同样支持“(”符号，返回删除数量。</p>
+</blockquote>
+<p>11、获得元素的排名<br><strong>ZRANK key member</strong><br><strong>ZREVRANK key member</strong></p>
+<blockquote>
+<p>ZRANK命令按照元素分数的从小到大的顺序获得制定元素的排名（第一个从0开始），ZREVRANK则相反。</p>
+</blockquote>
+<h3 id="实际应用场景："><a href="#实际应用场景：" class="headerlink" title="实际应用场景："></a><font color="0099ff" size="3">实际应用场景：</font></h3><p>最后我们举个实际应用的例子。</p>
+<blockquote>
+<p>我们把wordpress的文章按点击率排序，关系数据库我们是遍历所有的文章排序点击数，如果使用Redis，我们需要一个posts:page.view键的有序集合类型，然后每个member为文章ID，score为文章的点击量。这样我们就可以用<code>ZREVRANGE</code>命令获取点击量排行榜。</p>
+<p>还有一个实际的例子，我们用有序集合类型保存文章的发布时间（时间用UNIX时间及时间的毫秒数）与文章ID，这样我们可以很方便的按时间来查看文章列表，我们的文章列表应该是用文章发布时间排序而不应该用文章ID排序的。</p>
+<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a><font color="0099ff" size="3">例子：</font></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 下面为校验密码输入错误次数 超过设置次数则锁定钱包</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> userId</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> request</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">checkInputPWDCount</span><span class="params">(Integer userId, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">	Jedis jedis = RedisPool.getJedis();</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Map&lt;String, Object&gt; checkMap = getCheckTimeAndCount(jedis);</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">null</span> != checkMap) &#123;</span><br><span class="line">			<span class="keyword">return</span> checkMap;</span><br><span class="line">		&#125;</span><br><span class="line">		String ip = <span class="keyword">null</span>;</span><br><span class="line">		<span class="comment">// 获取到操作次数</span></span><br><span class="line">		Double phoneScore = jedis.zscore(Rkey.REPEAT_REQUEST_CACHE, String.valueOf(userId));</span><br><span class="line"></span><br><span class="line">		Long currentTime = System.currentTimeMillis();</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">null</span> != phoneScore &amp;&amp; org.apache.commons.lang3.StringUtils.isNotEmpty(phoneScore.toString())) &#123;</span><br><span class="line">			Map&lt;String, Object&gt; map = checkInputPWDRepeat(phoneScore, currentTime, jedis, String.valueOf(userId), userId);</span><br><span class="line">			<span class="keyword">if</span> (map != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> map;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			Double score = Double.valueOf(currentTime + <span class="string">"1"</span>);</span><br><span class="line">			jedis.zadd(Rkey.REPEAT_REQUEST_CACHE, score, String.valueOf(userId));</span><br><span class="line">			phoneScore = jedis.zscore(Rkey.REPEAT_REQUEST_CACHE, String.valueOf(userId));</span><br><span class="line">			Map&lt;String, Object&gt; map = checkInputPWDRepeat(phoneScore, currentTime, jedis, String.valueOf(userId), userId);</span><br><span class="line">			<span class="keyword">if</span> (map != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> map;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//获取IP地址</span></span><br><span class="line">		<span class="keyword">if</span> (request.getHeader(<span class="string">"x-forwarded-for"</span>) == <span class="keyword">null</span>) &#123;</span><br><span class="line">			ip = request.getRemoteAddr();</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			ip = request.getHeader(<span class="string">"x-forwarded-for"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (ip == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//获取缓存数据</span></span><br><span class="line">		Double ipScore = jedis.zscore(Rkey.REPEAT_REQUEST_CACHE, ip);</span><br><span class="line">		<span class="comment">//检测IP</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">null</span> != ipScore &amp;&amp; org.apache.commons.lang3.StringUtils.isNotEmpty(ipScore.toString())) &#123;</span><br><span class="line">			Map&lt;String, Object&gt; map = checkInputPWDRepeat(ipScore, currentTime, jedis, ip, userId);</span><br><span class="line">			<span class="keyword">if</span> (map != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> map;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			Double score = Double.valueOf(currentTime + <span class="string">"1"</span>);</span><br><span class="line">			jedis.zadd(Rkey.REPEAT_REQUEST_CACHE, score, ip);</span><br><span class="line">			phoneScore = jedis.zscore(Rkey.REPEAT_REQUEST_CACHE, String.valueOf(userId));</span><br><span class="line">			Map&lt;String, Object&gt; map = checkInputPWDRepeat(ipScore, currentTime, jedis, ip, userId);</span><br><span class="line">			<span class="keyword">if</span> (map != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> map;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">		RedisPool.returnJedis(jedis);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">checkInputPWDRepeat</span><span class="params">(Double score, Long currentTime, Jedis jedis, String checkStr, Integer userId)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 限制时间 默认1分钟</span></span><br><span class="line">	Long timeLimit = <span class="number">60000L</span>;</span><br><span class="line">	<span class="comment">// 限制次数</span></span><br><span class="line">	Integer countLimit = <span class="number">5</span>;</span><br><span class="line">	<span class="comment">// 读取redis的配置</span></span><br><span class="line">	String x = jedis.get(Rkey.WALLET_LOCK_X);</span><br><span class="line">	<span class="keyword">if</span> (!StringUtils.isEmpty(x)) &#123;</span><br><span class="line">		timeLimit = Long.valueOf(x);</span><br><span class="line">	&#125;</span><br><span class="line">	String y = jedis.get(Rkey.WALLET_LOCK_Y);</span><br><span class="line">	<span class="keyword">if</span> (!StringUtils.isEmpty(y)) &#123;</span><br><span class="line">		countLimit = Integer.valueOf(y);</span><br><span class="line">	&#125;</span><br><span class="line">	Map&lt;String, Object&gt; returnMap = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line">	String str = String.valueOf(score.longValue());</span><br><span class="line">	String previousTime = str.substring(<span class="number">0</span>, <span class="number">13</span>);</span><br><span class="line">	Integer requestCount = Integer.valueOf(str.substring(<span class="number">13</span>));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (currentTime - Long.valueOf(previousTime) &lt; timeLimit &amp;&amp; requestCount &gt;= countLimit) &#123;</span><br><span class="line">		returnMap.put(<span class="string">"errorCode"</span>, E.INVALID_REQUEST);</span><br><span class="line">		returnMap.put(<span class="string">"msg"</span>, <span class="string">"密码输入次数太频繁，钱包功能已锁定！解锁后可正常使用！"</span>);</span><br><span class="line">		returnMap.put(<span class="string">"keepCount"</span>, <span class="number">0</span>);</span><br><span class="line">		<span class="comment">// 2018/4/18  锁定钱包</span></span><br><span class="line">		updateIsLockByUserId(userId, Boolean.TRUE);</span><br><span class="line">		<span class="keyword">return</span> returnMap;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (currentTime - Long.valueOf(previousTime) &gt; timeLimit) &#123;</span><br><span class="line">			Double newScore = Double.valueOf(currentTime + <span class="string">"1"</span>);</span><br><span class="line">			jedis.zadd(Rkey.REPEAT_REQUEST_CACHE, newScore, checkStr);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			jedis.zincrby(Rkey.REPEAT_REQUEST_CACHE, <span class="number">1</span>, checkStr);</span><br><span class="line">			<span class="keyword">long</span> keepCount = countLimit - requestCount;</span><br><span class="line">			<span class="keyword">if</span> (keepCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">				returnMap.put(<span class="string">"keepCount"</span>, keepCount);</span><br><span class="line">				returnMap.put(<span class="string">"errorCode"</span>, E.INVALID_REQUEST);</span><br><span class="line">				returnMap.put(<span class="string">"msg"</span>, <span class="string">"支付密码错误，还有"</span> + keepCount + <span class="string">"机会"</span>);</span><br><span class="line">				<span class="keyword">return</span> returnMap;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
+
       
     </div>
     
     
     
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #f90a0a;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="向江城 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redis/" rel="tag"># redis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/15/Gogs私服搭建/" rel="next" title="Gogs私服搭建">
+                <i class="fa fa-chevron-left"></i> Gogs私服搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -485,7 +736,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#噗-IT-MAN"><span class="nav-number">1.</span> <span class="nav-text">噗~ IT MAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Blog"><span class="nav-number">2.</span> <span class="nav-text">Blog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Education"><span class="nav-number">3.</span> <span class="nav-text">Education</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Job"><span class="nav-number">4.</span> <span class="nav-text">Job</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Contact"><span class="nav-number">5.</span> <span class="nav-text">Contact</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#set（有序集合）"><span class="nav-number">1.</span> <span class="nav-text">set（有序集合）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#认识："><span class="nav-number">2.</span> <span class="nav-text">认识：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令："><span class="nav-number">3.</span> <span class="nav-text">命令：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际应用场景："><span class="nav-number">4.</span> <span class="nav-text">实际应用场景：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子："><span class="nav-number">5.</span> <span class="nav-text">例子：</span></a></li></ol></div>
             
 
           </div>
